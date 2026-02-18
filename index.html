@@ -70,9 +70,9 @@
         </div>        
         <div class="row">
             <div class="p-2 col">
-                <wb-input size="m" type="date" special-action-label="Open calendar" class="wb-input hydrated"
-                    reader-validation-message="" as="input" valid=""><span slot="label">Date of event</span>
-                </wb-input>
+                <wb-input size="m" type="date" inputmode="date" name="dateEvent" id="dateEvent" special-action-label="Open calendar" required>
+                    <span slot="label">Date of event</span>
+                </wb-input>                
             </div>
             <div class="p-2 col">
                 <wb-select button-action-label="Expand/Collapse" class="wb-select hydrated" size="m"
@@ -91,56 +91,41 @@
 
         <div class="row">
             <div class="p-2 col">
-                <wb-input size="l" type="text" inputmode="text" placeholder="e.g. John" class="wb-input hydrated"
-                    special-action-label="" reader-validation-message="" as="input" valid="">
-                    <span slot="label">Firstname</span>
-                    <input aria-hidden="true" type="hidden" name="undefined" value="+49 30 1234 5678"
-                        style="display: none;">
+                <wb-input size="l"  type="text" inputmode="text" placeholder="e.g. John" name="FirstName" id="FirstName" required>
+                    <span slot="label">FirstName</span>
                 </wb-input>
             </div>
             <div class="p-2 col">
-                <wb-input size="l" type="text" inputmode="text" placeholder="e.g. Barnes" class="wb-input hydrated"
-                    special-action-label="" reader-validation-message="" as="input" valid="">
-                    <span slot="label">Lastname</span>
-                    <input aria-hidden="true" type="hidden" name="undefined" value="+49 30 1234 5678"
-                        style="display: none;">
+                <wb-input size="l"  type="text" inputmode="text" placeholder="e.g. Barnes" name="Lastname" id="Lastname" required>
+                    <span slot="label">LastName</span>
                 </wb-input>
             </div>
         </div>
 
         <div class="row">
             <div class="p-2 col">
-                <wb-input size="m" type="email" inputmode="email" placeholder="e.g. your.name@mercedes-benz.com"
-                    class="wb-input hydrated" special-action-label="" reader-validation-message="" as="input" valid="">
-                    <span slot="label">E-mail address</span>
-                    <input aria-hidden="true" type="hidden" name="undefined" value="" style="display: none;">
-                </wb-input>
-            </div>
-            <div class="p-2 col">
-                <wb-input size="m" type="tel" inputmode="tel" placeholder="e.g. 60160000001" class="wb-input hydrated"
-                    special-action-label="" reader-validation-message="" as="input" valid="">
-                    <span slot="label">Telephone Number</span>
-                    <input aria-hidden="true" type="hidden" name="undefined" value="" style="display: none;">
-                </wb-input>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="p-2 col">
-                <wb-input size="s" type="email" inputmode="email" placeholder="e.g. your.name@mercedes-benz.com"
-                    class="wb-input hydrated" special-action-label="" reader-validation-message="" as="input" valid="">
+                <wb-input size="m" type="email" inputmode="email" placeholder="e.g. your.name@mercedes-benz.com" name="Email" id="Email" required>
                     <span slot="label">Email</span>
-                    <input aria-hidden="true" type="hidden" value="" name="email" value="+49 30 1234 5678"
-                        style="display: none;">
                 </wb-input>
             </div>
             <div class="p-2 col">
-                <wb-input size="s" type="tel" inputmode="tel" placeholder="e.g. 60160000001" class="wb-input hydrated"
-                    special-action-label="" reader-validation-message="" as="input" valid="">
-                    <span slot="label">Telphone</span>
-                    <input aria-hidden="true" type="hidden" name="telphone" value="" style="display: none;">
+                <wb-input size="m" type="tel" inputmode="tel" placeholder="e.g. 60160000001" name="Mobile" id="Mobile" required>
+                    <span slot="label">Telephone Number</span>
+                </wb-input>
+            </div>            
+        </div>
+
+        <div class="row">
+            <div class="p-2 col">
+                <wb-input size="s" type="email" inputmode="email" placeholder="e.g. your.name@mercedes-benz.com" name="Email" id="Email" required>
+                    <span slot="label">Email</span>
                 </wb-input>
             </div>
+            <div class="p-2 col">
+                <wb-input size="s" type="tel" inputmode="tel" placeholder="e.g. 60160000001" name="Mobile" id="Mobile" required>
+                    <span slot="label">Telephone Number</span>
+                </wb-input>
+            </div> 
         </div>
 
         <div class="row">
