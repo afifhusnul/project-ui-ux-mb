@@ -75,15 +75,14 @@
                 </wb-input>                
             </div>
             <div class="p-2 col">
-                <wb-select button-action-label="Expand/Collapse" class="wb-select hydrated" size="m"
-                    reader-validation-message="">
+                <wb-select button-action-label="Expand/Collapse">
                     <span slot="label">Model</span>
-                    <select name="model" id="select-id" aria-label="Model">
-                        <option selected="selected" value="">Please choose a model</option>
-                        <option value="A">A Class</option>
-                        <option value="B">B Class</option>
-                        <option value="C">C Class</option>
-                        <option value="E">E Class</option>
+                    <select name="model">
+                    <option selected="selected" value="">Please choose a model</option>
+                    <option value="A">A Class</option>
+                    <option value="B">B Class</option>
+                    <option value="C">C Class</option>
+                    <option value="E">E Class</option>
                     </select>
                 </wb-select>
             </div>
@@ -138,14 +137,9 @@
                         }
                     </style>
                     <div style="width: min(90vw, 20rem)">
-                        <wb-tooltip position="top" variant="" disabled="false" style="display: block;"
-                            class="wb-tooltip hydrated" role="tooltip" aria-label="Email sample">
-                            <wb-input size="l" type="email" inputmode="email" placeholder="harry.potter@hogwarts.edu"
-                                class="wb-input hydrated" special-action-label="" reader-validation-message=""
-                                as="input" valid="">
+                        <wb-tooltip position="top" variant="" open="true" disabled="false" style="display: block;">
+                            <wb-input size="m" type="email" inputmode="email" value="harry.potter@hogwarts.edu">
                                 <span slot="label">E-mail address</span>
-                                <input aria-hidden="true" type="hidden" name="undefined" style="display: none;">
-                            </wb-input>
                             <div slot="content">eg: email@outlook.com</div>
                         </wb-tooltip>
                     </div>
@@ -160,15 +154,10 @@
                         }
                     </style>
                     <div style="width: min(90vw, 20rem)">
-                        <wb-tooltip position="top" variant="" disabled="false" style="display: block;"
-                            class="wb-tooltip hydrated" role="tooltip" aria-label="Email sample">
-                            <wb-input size="l" type="tel" inputmode="tel" placeholder="eg : 60160000001"
-                                class="wb-input hydrated" special-action-label="" reader-validation-message=""
-                                as="input" valid="">
-                                <span slot="label">Telephone Number</span>
-                                <input aria-hidden="true" type="hidden" name="undefined" style="display: none;">
-                            </wb-input>
-                            <div slot="content">eg: 60160000001</div>
+                        <wb-tooltip position="top" variant="" open="true" disabled="false" style="display: block;">
+                            <wb-input size="m" type="tel" inputmode="tel" value="601000000">
+                                <span slot="label">Mobile Number</span>
+                            <div slot="content">eg: 601000000</div>
                         </wb-tooltip>
                     </div>
                 </div>
@@ -177,20 +166,14 @@
 
         <div class="row">
             <div class="p-2 col">
-                <wb-checkbox name="newsletter" class="wb-checkbox hydrated">Sign me up for the monthly newsletter
-                    <input aria-hidden="true" type="checkbox" name="newsletter" value="on" style="display: none;">
+                <wb-checkbox name="newsletter">
+                    Sign me up for the monthly newsletter
                 </wb-checkbox>
             </div>
             <div class="p-2 col">
-                <wb-radio-group class="wb-radio-group mx-auto p-2 hydrated d-grid gap-3"
-                    style="grid-template-columns: 1fr 1fr;">
-                    <wb-radio-button name="transmission" value="Automatic"
-                        class="wb-radio-button hydrated">Automatic<input aria-hidden="true" type="radio"
-                            name="transmission" value="Automatic" style="display: none;">
-                    </wb-radio-button>
-                    <wb-radio-button name="transmission" value="manual" class="wb-radio-button hydrated">Manual<input
-                            aria-hidden="true" type="radio" name="transmission" value="manual" style="display: none;">
-                    </wb-radio-button>
+                <wb-radio-group>
+                    <wb-radio-button name="transmission" id="transmission" value="manual"> Manual</wb-radio-button>
+                    <wb-radio-button name="transmission" id="transmission" value="Automatic"> Automatic</wb-radio-button>
                 </wb-radio-group>
             </div>
         </div>
