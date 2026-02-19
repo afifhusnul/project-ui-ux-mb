@@ -217,9 +217,10 @@
             </div>
         </div>
         <div class="row">
-            <div class="p-2 col">
-                <wb-datepicker>Date Event</wb-datepicker>
-
+             <div class="p-2 col">
+                <wb-input size="l" type="text" as="textarea" placeholder="The text are for letter box is in the inner courtyard" >
+                    <span slot="label">Further notes</span>
+                </wb-input>
             </div>
             <div class="p-2 col">
                 <wb-card variant="primary" padded="">
@@ -230,12 +231,8 @@
 
         <div class="row">
             <div class="p-2 col">
-                <wb-input placeholder="The text are for letter box is in the inner courtyard" as="textarea"
-                    class="wb-input hydrated" size="l" type="text" special-action-label="" reader-validation-message=""
-                    valid="">
-                    <span slot="label">Further notes</span>
-                </wb-input>
-            </div>
+                <wb-datepicker>Date Event</wb-datepicker>
+            </div>           
             <div class="p-2 col">
                 <wb-accordion>
                     <wb-accordion-item>
