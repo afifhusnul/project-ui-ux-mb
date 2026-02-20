@@ -156,10 +156,10 @@
 
         <div class="row">
             <div class="p-2 col text-center">
-                <button class="wbx-button wbx-button--primary wbx-button--large p2" aria-label="Button" lifetime="2000" onclick="showSuccess('Action completed successfully!')">Success</button>
-                <button class="wbx-button wbx-button--secondary wbx-button--large p2" aria-label="Button" lifetime="2000" onclick="showWarning('Warning!')">Warning</button>
-                <button class="wbx-button wbx-button--destructive wbx-button--large p2" aria-label="Button" lifetime="2000" onclick="showError('Action destroyed successfully!')">Danger</button>
-                <button class="wbx-button wbx-button--info wbx-button--large p2" aria-label="Button" lifetime="2000" onclick="showInfo('I got info for YOU!!!')">Info</button>                
+                <button class="wbx-button wbx-button--primary wbx-button--large p2" onclick="showSuccess('Action completed successfully!')">Success</button>
+                <button class="wbx-button wbx-button--secondary wbx-button--large p2" onclick="showWarning('Warning!')">Warning</button>
+                <button class="wbx-button wbx-button--destructive wbx-button--large p2" onclick="showError('Action destroyed successfully!')">Danger</button>
+                <button class="wbx-button wbx-button--translucent wbx-button--large p2" onclick="showInfo('I got info for YOU!!!')">Info</button>                
             </div>
             <div class="p-2 col">
                 <div style="width: min(90vw, 20rem)">
@@ -195,16 +195,16 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
             <div class="p-2 col">
                 <div class="wbx-notification wbx-notification--highlight">
                     <div class="wbx-notification__body">
-                    <span class="wbx-notification__content">This is a notification</span>
+                        <wb-badge variant="highlight"></wb-badge>
+                        <span class="wbx-notification__content">This is a notification</span>
                 </div>
                 </div>
             </div>
         </div>
+        
         <div class="row">
              <div class="p-2 col">
                 <wb-input size="l" type="text" as="textarea" placeholder="The text are for letter box is in the inner courtyard" >
