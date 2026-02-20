@@ -112,7 +112,7 @@
                         }
                     </style>
                     <div style="width: min(90vw, 20rem)">
-                        <wb-tooltip position="top" variant="" open="true" disabled="false" style="display: block;">
+                        <wb-tooltip position="top" variant="" open="true" disabled="false" style="display: block;">                            
                             <wb-input size="m" type="email" inputmode="email" value="harry.potter@hogwarts.edu">
                                 <span slot="label">E-mail address</span>
                             <div slot="content">eg: email@outlook.com</div>
@@ -174,19 +174,15 @@
             <div class="p-2 col">
                 <div class="wbx-notification wbx-notification--warning">
                     <div class="wbx-notification__body">
-                        <wb-badge variant="warning" class="wb-badge hydrated">
-                            <wb-icon class="wb-icon hydrated" aria-hidden="true" name="bds/warning/16"></wb-icon>
-                        </wb-badge>
+                        <wb-badge variant="warning"></wb-badge>
                         <span class="wbx-notification__content">This is a notification</span>
                     </div>
                 </div>
             </div>
             <div class="p-2 col">
-                <div class="wbx-notification wbx-notification--success">
+                 <div class="wbx-notification wbx-notification--success">
                     <div class="wbx-notification__body">
-                        <wb-badge variant="success" class="wb-badge hydrated">
-                            <wb-icon class="wb-icon hydrated" aria-hidden="true" name="bds/checkmark/16"></wb-icon>
-                        </wb-badge>
+                        <wb-badge variant="success"></wb-badge>
                         <span class="wbx-notification__content">This is a notification</span>
                     </div>
                 </div>
@@ -194,10 +190,7 @@
             <div class="p-2 col">
                 <div class="wbx-notification wbx-notification--error">
                     <div class="wbx-notification__body">
-                        <wb-badge variant="error" class="wb-badge hydrated">
-                            <wb-icon class="wb-icon hydrated" aria-hidden="true"
-                                name="bds/exclamation-mark/16"></wb-icon>
-                        </wb-badge>
+                        <wb-badge variant="error"></wb-badge>
                         <span class="wbx-notification__content">This is a notification</span>
                     </div>
                 </div>
@@ -205,9 +198,11 @@
         </div>
         <div class="row">
             <div class="p-2 col">
-                <wb-notification role="status" class="wb-notification hydrated mx-auto position-relative p-5 hidden">
-                    <span>This is a notification</span>
-                </wb-notification>
+                <div class="wbx-notification wbx-notification--highlight">
+                    <div class="wbx-notification__body">
+                    <span class="wbx-notification__content">This is a notification</span>
+                </div>
+                </div>
             </div>
         </div>
         <div class="row">
