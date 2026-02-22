@@ -38,9 +38,12 @@
   
 /*--- Xloader ---*/
 .xloader {
-  width: 54px;
-  height: 54px;
-  position: relative;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 120px;
+  height: 120px;
+  z-index: 1;  
   border-radius: 4px;
   background-color: #f3f3f3;
   background-image:
