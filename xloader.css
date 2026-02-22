@@ -59,6 +59,7 @@
     position: absolute;
     top: 0;
     left: 0;
+    border-radius: 10px;
     box-sizing: border-box;
     animation: animloader 2s linear infinite;
 }
