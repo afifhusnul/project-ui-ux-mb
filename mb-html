@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercedes · Spinner · on top</title>
+    <style>
+        /* reset minimal – only to make the demo clear */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* background & other elements – just to prove it's on top */
+        body {
+            min-height: 100vh;
+            background: radial-gradient(circle at 20% 30%, #1a2f3f, #0b1a24);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        /* 👇 ordinary content that should be covered / underneath */
+        .behind-content {
+            max-width: 720px;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(3px);
+            border-radius: 2.5rem;
+            border: 1px solid rgba(216, 196, 140, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            text-align: center;
+            color: #ece8da;
+            pointer-events: none; /* so you can see through to the spinner conceptually, but the spinner is above */
+            user-select: none;
+            z-index: 1;          /* lower than the spinner */
+        }
+
+        .behind-content h1 {
+            font-weight: 400;
+            letter-spacing: 2px;
+            font-size: 2.8rem;
+            text-transform: uppercase;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+            border-bottom: 2px dashed #c5a86a;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .behind-content p {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .behind-content .fancy-box {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .behind-content .fancy-box div {
+            width: 100px;
+            height: 100px;
+            background: rgba(190, 160, 100, 0.2);
+            border-radius: 30% 70% 70% 30% / 30% 55% 45% 70%;
+            border: 2px solid #b99d60;
+            box-shadow: 0 0 0 4px rgba(0,0,0,0.3) inset;
+        }
+
+        /* ---------- SPINNER (mercedes + animation) ---------- */
+        /* wrapper: fixed center, covers everything, high z-index */
+        .mercedes-spinner {
+            position: fixed;           /* stays in the middle of viewport */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;       /* allows clicking through to background if needed – but stays visually on top */
+            z-index: 9999;              /* way above any other element */
+            background: transparent;    /* no overlay, just the spinner */
+        }
+
+        /* spinner core (the rotating ring + star) */
+        .spinner-ring {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* the classic three-pointed star + ring (mercedes symbol) */
+        .mercedes-emblem {
+            width: 100px;
+            height: 100px;
+            background: #1c1c1c;        /* dark background like a solid badge */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 0 0 6px rgba(220, 200, 150, 0.25), 0 10px 25px rgba(0,0,0,0.7);
+            /* inner "tire" effect */
+            background: radial-gradient(circle at 30% 30%, #3a3a3a, #0f0f0f 80%);
+            border: 2px solid #aca27a;
+            z-index: 2;
+        }
+
+        /* the three-pointed star (mercedes symbol) */
+        .star {
+            width: 54px;
+            height: 54px;
+            background: #d4c9b0;           /* metallic / silver tone */
+            clip-path: polygon(50% 0%, 68% 32%, 100% 32%, 77% 58%, 86% 100%, 50% 76%, 14% 100%, 23% 58%, 0% 32%, 32% 32%);
+            transform: rotate(15deg);       /* slight rotation to make it dynamic */
+            filter: drop-shadow(0 0 4px #ffe9b6);
+            transition: transform 0.2s;
+        }
+
+        /* spinning ring – the "circle of motion" */
+        .outer-spinner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 6px solid transparent;
+            border-top: 6px solid #f0e1c0;
+            border-right: 6px solid #c5a048;
+            border-bottom: 6px solid #8f7a4c;
+            border-left: 6px solid #ead5a4;
+            border-radius: 50%;
+            box-shadow: 0 0 25px rgba(230, 200, 120, 0.9), inset 0 0 10px rgba(0,0,0,0.3);
+            animation: spin 1.2s infinite cubic-bezier(0.55, 0.15, 0.45, 0.85);
+            filter: drop-shadow(0 0 8px #ebd29b);
+        }
+
+        /* tiny outer dots for extra "mercedes" vibe (optional) */
+        .outer-spinner::after {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            right: -12px;
+            bottom: -12px;
+            border: 2px dotted rgba(220, 190, 120, 0.6);
+            border-radius: 50%;
+            opacity: 0.8;
+        }
+
+        /* animation keyframes – continuous rotation */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* optional micro interaction: emblem glows softly */
+        .mercedes-emblem {
+            animation: softGlow 2.4s infinite alternate ease-in-out;
+        }
+
+        @keyframes softGlow {
+            0% { filter: drop-shadow(0 0 2px #baa87b); }
+            100% { filter: drop-shadow(0 0 12px #fde7b0); }
+        }
+
+        /* to demonstrate that the spinner stays on top, we also add a small semi‑transparent overlay note (optional) – but not required */
+        .info-note {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.5);
+            color: #ccb688;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid #b5914c;
+            z-index: 10000;             /* even above spinner if needed, but we want spinner above all? Actually note can be above spinner but that's fine; spinner is above background elements */
+            pointer-events: none;
+        }
+
+        /* Additional style: the "mercedes-benz" text on the middle, as you asked — inside emblem? */
+        /* You explicitly said "with mercedes-benz on the middle". I'll add text below the spinner or inside? The instruction says "mercedes-benz on the middle" – we can place the text inside the emblem or right under it.
+        I'll integrate "MERCEDES-BENZ" curved or flat under the star to keep it elegant. */
+        .brand-text {
+            position: absolute;
+            bottom: -26px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Times New Roman', serif;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 2.5px;
+            color: #c7b281;
+            text-shadow: 0 2px 6px black, 0 0 6px #413a28;
+            white-space: nowrap;
+            background: rgba(0,0,0,0.5);
+            padding: 0.2rem 1rem 0.3rem 1rem;
+            border-radius: 40px;
+            backdrop-filter: blur(6px);
+            border: 1px solid #a3874e;
+            line-height: 1;
+        }
+
+        /* alternative: if you want text on the middle of the emblem, we could place a tiny ring, but better to keep it minimal. i'll put text exactly in center? but star is in center. So text will be under the emblem, still appears "in the middle" relative to whole spinner. */
+        /* adjust position */
+        .spinner-ring {
+            margin-bottom: 20px; /* give room for text */
+        }
+        /* but the fixed container centers everything, so the .brand-text will be centered relative to the emblem */
+    </style>
+</head>
+<body>
+    <!-- background content: any other elements (buttons, cards, divs) -->
+    <div class="behind-content">
+        <h1>★ AMG · MAYBACH · G-CLASS ★</h1>
+        <p>Vision · Handcrafted · Performance</p>
+        <div class="fancy-box">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <p style="margin-top: 2rem; font-style: italic;">“The best or nothing” — this spinner stays on top of everything, even over this luxurious panel.</p>
+    </div>
+
+    <!-- fixed spinner, on top of all elements (z-index 9999) -->
+    <div class="mercedes-spinner">
+        <div class="spinner-ring">
+            <!-- rotating outer ring -->
+            <div class="outer-spinner"></div>
+            <!-- static mercedes emblem with star -->
+            <div class="mercedes-emblem">
+                <div class="star"></div>
+            </div>
+            <!-- the text "mercedes-benz" placed exactly at the middle-bottom, still centered with the spinner -->
+            <div class="brand-text">MERCEDES-BENZ</div>
+        </div>
+    </div>
+
+    <!-- tiny note (still above background, but could be above spinner if z-index higher; but we want spinner above background, this note is extra) I'll set its z-index lower than spinner so it doesn't interfere visually. actually let's not distract; but it's fine as is. -->
+    <div class="info-note">● spinner always on top</div>
+
+    <!-- no script needed, only CSS animation -->
+</body>
+</html>
