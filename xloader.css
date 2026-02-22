@@ -46,7 +46,7 @@
     height: 16px;
     width: 80%;    
     border: 1px solid #333; /* Darker, thicker border */
-    border-radius: 10px;
+    border-radius: 8px;
     background: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Stronger shadow */
 }
@@ -59,7 +59,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    border-radius: 7px; /* Adjusted for new border */
+    border-radius: 5px; /* Adjusted for new border */
     box-sizing: border-box;
     animation: animloader 2s linear infinite;
 }
