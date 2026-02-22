@@ -41,12 +41,14 @@
     display: block;
     position: relative;
     z-index: 1;
-    height: 12px;
+    height: 16px;
     width: 80%;
+    max-width: 400px; /* Optional: limits maximum width */
     border: 1px solid #f3f3f3;
     border-radius: 10px;
     overflow: hidden;
 }
+
 .zloader::after {
     content: '';
     width: 40%;
