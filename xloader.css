@@ -44,8 +44,7 @@
     transform: translate(-50%, -50%);
     z-index: 9999;
     height: 16px;
-    width: 80%;
-    max-width: 400px;
+    width: 80%;    
     border: 3px solid #333; /* Darker, thicker border */
     border-radius: 10px;
     background: #fff;
