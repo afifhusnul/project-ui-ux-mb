@@ -38,7 +38,7 @@
   
 /*--- Xloader ---*/
 .zloader{
-    position: absolute;
+    position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -46,9 +46,10 @@
     height: 16px;
     width: 80%;
     max-width: 400px;
-    border: 2px solid #f3f3f3;
+    border: 3px solid #333; /* Darker, thicker border */
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Stronger shadow */    
+    background: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Stronger shadow */
 }
 
 .zloader::after {
@@ -59,7 +60,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    border-radius: 7px;
+    border-radius: 7px; /* Adjusted for new border */
     box-sizing: border-box;
     animation: animloader 2s linear infinite;
 }
